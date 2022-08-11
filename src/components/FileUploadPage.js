@@ -25,10 +25,31 @@ function FileUploadPage() {
 			.then((response) => response.text())
 			.then((data) => {
 				// Match data with resumeFile
-				const sourceFileWords = data.split(" "); //split source file by spaces
+				const sourceFileWords = data.split("\n"); //split source file by spaces
 				console.log(sourceFileWords)
-				text = sourceFileWords.toString();
-				console.log(text)
+				
+				/*//is this an array? let's find out.
+				const text = sourceFileWords.toString();
+				console.log(text) //this is the text from the source file*/
+
+				var wordsList = []; //words present in the resume will be stored here.
+				//for each word in the sourceFile, check if it's in the resumeFile
+				for(var i=0; i<sourceFileWords.length; i++){ //iterate through all words of source file
+					var currentWord = sourceFileWords[i]; //current word being looked at
+					console.log("current word: ", currentWord);
+					if(true){ //selection logic goes here
+						wordsList.push(currentWord); //append word to list
+					}
+				}
+				//print out the words list for inspection
+				console.log(wordsList);
+				//turn it into a string for export
+				wordsList = wordsList.toString(); //use toString() to turn array into string. elements seperated by commas.
+    			//ex: ["apples", "oranges", "bananas"] -> "apples,oranges,bananas"
+				//print out the words list for inspection
+				console.log(wordsList);
+    			return wordsList;
+
 			});
 	}
 
