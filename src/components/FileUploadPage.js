@@ -7,22 +7,29 @@ import {db} from "../firebase-config"
 function FileUploadPage() {
 
 	const getName = (textFile) => {
-		textFile.split(" ").slice(0, 2).join(" ");
+		return textFile.split(" ").slice(0, 2).join(" ");
 	};
 
 	const getLanguages=(textFile)=>{
-		getWords(langFile, textFile)
+		return getWords(langFile, textFile)
 		
 	}
 
 	const getEducation=(textFile) =>{
-		getWords(educationFile, textFile)
+		return getWords(educationFile, textFile)
 	}
 
 	const getWords = (sourceFile, resumeFile) => {
 		//First we need to get sourceFile 
-
-		//then get words
+		fetch(sourceFile)
+			.then((response) => response.text())
+			.then((data) => {
+				// Match data with resumeFile
+				const sourceFileWords = data.split(" "); //split source file by spaces
+				console.log(sourceFileWords)
+				text = sourceFileWords.toString();
+				console.log(text)
+			});
 	}
 
 	const saveChange = async (name, languages, education) => {
@@ -35,9 +42,10 @@ function FileUploadPage() {
 		})
 	};
 
-	const handleFileChange = (textFile) => {
+	const handleFileChange = (e) => {
+		e.preventDefault();
 		const fileReader = new FileReader();
-		fileReader.onload = (e) => {
+		fileReader.onload = async (e) => {
 			const text = e.target.result;
 			// console.log(text);
 			var textFile = text.replace(/\n/g, " ");
@@ -56,7 +64,7 @@ function FileUploadPage() {
 			saveChange(name, languages, education)
 		};
 
-		fileReader.readAsText(textFile);
+		fileReader.readAsText(e.target.files[0]);
 	};
 
 	return (
@@ -66,7 +74,7 @@ function FileUploadPage() {
 				type="file"
 				className="fileUpload"
 				onChange={(e) => {
-					handleFileChange(e.target.files[0]);
+					handleFileChange(e);
 				}}
 			/>
 
