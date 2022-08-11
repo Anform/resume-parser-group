@@ -1,0 +1,3 @@
+John Doe
+Education: High School diploma
+I can code in Python, Javascript, C, C++, and Ruby.

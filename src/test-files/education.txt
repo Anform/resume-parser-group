@@ -1,0 +1,5 @@
+diploma
+associate
+bachelor's
+master's
+doctorate

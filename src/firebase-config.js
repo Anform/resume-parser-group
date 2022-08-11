@@ -18,6 +18,8 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-export const db = getFirestore(app);
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+
+//All the connections needed related to firebase, now we need to start using them
+export const db = getFirestore(app);
+export const analytics = getAnalytics(app);
