@@ -36,9 +36,11 @@ function FileUploadPage() {
 				//for each word in the sourceFile, check if it's in the resumeFile
 				for(var i=0; i<sourceFileWords.length; i++){ //iterate through all words of source file
 					var currentWord = sourceFileWords[i]; //current word being looked at
-					console.log("current word: ", currentWord);
-					if(true){ //selection logic goes here
-						wordsList.push(currentWord); //append word to list
+					//console.log("current word: ", currentWord);
+					//what does the resume file look like?
+					//console.log("resume: ", resumeFile);
+					if(resumeFile.includes(currentWord) && !wordsList.includes(currentWord)){ //selection logic
+						wordsList.push(currentWord);
 					}
 				}
 				//print out the words list for inspection
