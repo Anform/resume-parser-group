@@ -63,6 +63,12 @@ function FileUploadPage() {
 			education: education,
 			languages: languages,
 		})
+			.then((docRef) => {
+				console.log("Document " + docRef.id + " has been added successfully");
+			})
+			.catch((error) => {
+				console.log(error);
+			});
 	};
 
 	const handleFileChange = (e) => {
