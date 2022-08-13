@@ -33,7 +33,7 @@ const FirebaseTable = () => {
                     <thead>
                         <tr>
                             <th scope = "col">Name</th>
-                            <th scope = "col">Degree</th>
+                            <th scope = "col">Education</th>
                             <th scope = "col">Languages</th>
                         </tr>
                     </thead>
@@ -41,7 +41,7 @@ const FirebaseTable = () => {
                         {data.filter((val) => {
                             if(val.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                             val.languages.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                            val.degree.toLowerCase().includes(searchTerm.toLowerCase()))
+                            val.education.toLowerCase().includes(searchTerm.toLowerCase()))
                             {
                                 return val
                             }
@@ -49,7 +49,7 @@ const FirebaseTable = () => {
                             return (
                                 <tr>
                                     <td>{info.name}</td>
-                                    <td>{info.degree}</td>
+                                    <td>{info.education}</td>
                                     <td>{info.languages}</td>
                                     <td><button onClick ={() => deleteEntry(info.id)}>Delete</button></td>
                                 </tr>
