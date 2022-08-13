@@ -1,0 +1,28 @@
+.userInput {
+    /* Frame 5 */
+
+
+box-sizing: border-box;
+
+/* Auto layout */
+
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 16px 18px;
+gap: 16px;
+
+position: absolute;
+width: 552px;
+height: 57px;
+left: 340px;
+top: 14px;
+
+background: rgba(0, 0, 0, 0);
+border-radius: 8px;
+}
+
+table {
+    margin-top: 100px;
+    margin-left: 340px;
+}

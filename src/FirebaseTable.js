@@ -2,10 +2,10 @@ import React from "react"
 import {useState,useEffect} from "react"
 import {db} from "./firebase-config"
 import {collection, getDocs, doc, deleteDoc} from "firebase/firestore"
-
+import "./Table.css"
 
 const FirebaseTable = () => {
-    const [searchTerm, setSearchTerm] = useState('')
+    const [searchTerm, setSearchTerm] = useState("")
     const [data, setData] = useState([])
     const dataCollectionRef = collection(db,"resume")
 
@@ -13,6 +13,7 @@ const FirebaseTable = () => {
         const userDoc = doc(db, "resume", id)
         await deleteDoc(userDoc)
         window.location.reload()
+        window.alert("Entry deleted!")
     }
 
     useEffect(() => {
@@ -33,7 +34,7 @@ const FirebaseTable = () => {
                     <thead>
                         <tr>
                             <th scope = "col">Name</th>
-                            <th scope = "col">Education</th>
+                            <th scope = "col">Degree</th>
                             <th scope = "col">Languages</th>
                         </tr>
                     </thead>
