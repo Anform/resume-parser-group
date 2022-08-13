@@ -105,7 +105,7 @@ function FileUploadPage() {
 
 	return (
 		<div>
-			<img className = "image" source = {resume}></img>
+			
 			<rect className = "uploadBox">
 			<p className = "inst">Upload your resume</p>
 			<input
