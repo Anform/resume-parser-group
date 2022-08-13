@@ -4,7 +4,6 @@ import educationFile from "../test-files/education.txt"
 import {collection, addDoc} from "firebase/firestore"
 import {db} from "../firebase-config"
 import "./Upload.css"
-import resume from "./resume.png"
 
 function FileUploadPage() {
 
