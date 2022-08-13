@@ -1,0 +1,78 @@
+.uploadBox {
+    /* Rectangle 15 */
+
+
+position: absolute;
+width: 480px;
+height: 480px;
+left: 642px;
+top: 210px;
+
+background: rgba(32, 39, 64, 0.04);
+/* Grey Blue */
+
+border: 2.5px dashed #7482B3;
+border-radius: 24px;
+}
+
+.inst {
+    position: absolute;
+    width: 304px;
+    height: 30px;
+    left: 102.5px;
+    top: 150px;
+
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 30px;
+    /* identical to box height */
+
+    text-align: center;
+
+    /* Navy */
+    background: rgba(127, 128, 134, 0);
+    color: #202740;
+
+}
+
+.fileUpload {
+    display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 12px 24px;
+gap: 10px;
+
+position: absolute;
+width: 227px;
+height: 49px;
+left: 140px;
+top: 200px;
+
+background: rgba(32, 39, 64, 0);
+}
+
+.files {
+    position: absolute;
+width: 142px;
+height: 22px;
+left: 180px;
+top: 250px;
+
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 22px;
+/* identical to box height */
+
+text-align: center;
+
+/* Navy */
+
+color: #202740;
+background: rgba(245, 245, 220, 0);
+}
+

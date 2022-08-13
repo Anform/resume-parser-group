@@ -3,6 +3,9 @@ import langFile from "../test-files/languages.txt"
 import educationFile from "../test-files/education.txt"
 import {collection, addDoc} from "firebase/firestore"
 import {db} from "../firebase-config"
+import "./Upload.css"
+import resume from "./resume.png"
+
 function FileUploadPage() {
 
 	const [lanArray, setLanArray] = useState(["Python","Java","JavaScript","C#","C","C++", "PHP", "R", "TypeScript","Objective-C","Swift","Matlab","Kotlin","Go", 
@@ -70,6 +73,7 @@ function FileUploadPage() {
 				console.log(error);
 			});
 		window.location.reload()
+		window.alert("File Uploaded!")
 	};
 
 	const handleFileChange = (e) => {
@@ -102,7 +106,9 @@ function FileUploadPage() {
 
 	return (
 		<div>
-			
+			<img className = "image" source = {resume}></img>
+			<rect className = "uploadBox">
+			<p className = "inst">Upload your resume</p>
 			<input
 				type="file"
 				className="fileUpload"
@@ -110,8 +116,9 @@ function FileUploadPage() {
 					handleFileChange(e);
 				}}
 			/>
-
+			<p className = "files">as .txt file</p>
 			<br />
+			</rect>
 		</div>
 	);
 }
