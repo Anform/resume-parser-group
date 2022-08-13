@@ -19,7 +19,46 @@ function FileUploadPage() {
 		return getWords(educationFile, textFile)
 	}
 
-	const getWords = (sourceFile, resumeFile) => {
+	//this function sets the content of a div
+	function fetchFileText(sourceFile, resumeFile){
+		fetch(sourceFile)
+		.then(r => r.text())
+		.then(text => {
+			console.log('text decoded:', text);
+			var preview = document.getElementById('result');
+			preview.innerHTML = text;
+			console.log("first preview", preview);
+			//TEXT = text;
+			//alert(text);
+			//alert('text decoded:', text);
+			//return text;
+		});
+		//return "execute";
+	}
+
+	function getWords(sourceFile, resumeFile){
+		fetchFileText(sourceFile, resumeFile); //set text in div
+		//if(fetchFileText(sourceFile, resumeFile)=="execute"){
+		var preview = document.getElementById('result');
+		console.log("the preview", preview);
+		//var test = "cmon you sdlkhgkjshdj"; //var test = preview.textContent;
+		//var test = preview.innerText;
+		//remove div tags and id
+		/*var test = preview.replace("<div>", "");
+		test = preview.replace('<div id="result">', '');*/
+		//var test = "fhfhfh";
+		//var test = preview.toString();
+		var test = "preview";
+		console.log("here it is: ", test); //where is it?
+		test = test.replace(/\n/g, " ");
+		console.log("again: ", test);
+		//preview.innerHTML = ""; //clear the div for reuse
+		return test;
+	//}
+
+	}
+
+	const getWords2 = (sourceFile, resumeFile) => {
 		//First we need to get sourceFile 
 		fetch(sourceFile)
 			.then((response) => response.text())
@@ -50,9 +89,20 @@ function FileUploadPage() {
     			//ex: ["apples", "oranges", "bananas"] -> "apples,oranges,bananas"
 				//print out the words list for inspection
 				console.log(wordsList);
-    			return wordsList;
+				var preview = document.getElementById('result'); //get the div
+        		preview.innerHTML = wordsList; //set text of div
+				console.log("text: ", preview);
 
 			});
+			//this stuff goes BEFORE the stuff in the .then((data)=>) statement
+			//first, check if there is nothing. if there is, wait to get something?
+			var preview = document.getElementById('result'); //get the div
+			console.log("text test 2", preview);
+			var wordsList = preview.textContent; //set wordslist
+			console.log("the words: ", wordsList);
+			preview.innerHTML = ""; //delete div content
+    		//return wordsList;
+			return wordsList;
 	}
 
 	const saveChange = async (name, languages, education) => {
@@ -81,14 +131,14 @@ function FileUploadPage() {
 			//console.log(textFile);
 
 			const name = getName(textFile);
-			//console.log(name);
+			console.log("name: ", name);
 			
 			const languages = getLanguages(textFile)
-			//console.log(languages)
+			console.log("languages: ", languages)
 
 			const education = getEducation(textFile) //education
-			//console.log(education);
-			
+			console.log("education: ", education);
+			//education = languages;
 			//upload to fb
 			saveChange(name, languages, education)
 		};
@@ -108,6 +158,7 @@ function FileUploadPage() {
 			/>
 
 			<br />
+			<div id="result"></div>
 		</div>
 	);
 }
